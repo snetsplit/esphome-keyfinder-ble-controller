@@ -87,6 +87,7 @@ SECURTY_MODE_OPTIONS = {
     CONF_SECURITY_MODE_SECURE: BLESecurityMode.SECURE,
 }
 
+CONF_STATIC_PASSKEY = 'static_passkey'
 # authetication and (dis)connected automations #####
 CONF_ON_SHOW_PASS_KEY = "on_show_pass_key"
 BLEControllerShowPassKeyTrigger = esp32_ble_controller_ns.class_('BLEControllerShowPassKeyTrigger', automation.Trigger.template())
