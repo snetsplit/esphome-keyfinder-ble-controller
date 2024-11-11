@@ -75,7 +75,8 @@ esp32_ble_controller:
   # sends a 6-digit pass key to the ESP and the ESP is supposed to display it so that it can be entered on the other device.
   # This automation is not available for the "none" mode, optional for the "bond" mode, and required for the "secure" mode.
   security_mode: secure
-
+  # This allows setting a static passkey
+  static_passkey: "654321"
   # allows to disable the maintenance service, default is 'true'
   # When 'false', the maintenance service is not exposed, which provides at least some protection when security mode is "none".
   # Note: Writeable characteristics like those for switches or fans may still be written by basically anyone.
