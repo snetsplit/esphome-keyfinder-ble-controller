@@ -23,7 +23,7 @@ static const char *TAG = "esp32_ble_controller";
 
 
 boolean static_passkey = false;
-char[6] static_passkey_value;
+char* static_passkey_value[6];
 
 ESP32BLEController::ESP32BLEController() : maintenance_handler(new BLEMaintenanceHandler()) {}
 
@@ -79,9 +79,9 @@ void ESP32BLEController::set_security_enabled(bool enabled) {
   set_security_mode(BLESecurityMode::SECURE);
 }
 
-void ESP32BLEController::set_static_passkey(char[6] passkey) {
+void ESP32BLEController::set_static_passkey(PROGMEM char[6] passkey) {
   static_passkey = true;
-  static_passkey_value = passkey;
+  static_passkey_value = &passkey;
 }
 
 
