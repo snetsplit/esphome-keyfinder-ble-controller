@@ -57,7 +57,7 @@ public:
   void add_on_disconnected_callback(std::function<void()>&& trigger_function);
 
   void set_maintenance_service_exposed_after_flash(bool exposed);
-  void set_static_passkey(*char);
+  void set_static_passkey(char key_pass[6]);
 
   void set_security_mode(BLESecurityMode mode) { security_mode = mode; }
   inline BLESecurityMode get_security_mode() const { return security_mode; }
