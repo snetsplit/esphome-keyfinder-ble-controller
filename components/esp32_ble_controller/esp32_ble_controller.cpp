@@ -451,7 +451,7 @@ void ESP32BLEController::configure_ble_security() {
   security.setRespEncryptionKey(ESP_BLE_ENC_KEY_MASK | ESP_BLE_ID_KEY_MASK);
   security.setKeySize(16);
   if(static_passkey) {
-    security.setStaticPIN(static_passkey_value)
+    security.setStaticPIN(static_passkey_value);
   }
 
   uint8_t auth_option = ESP_BLE_ONLY_ACCEPT_SPECIFIED_AUTH_ENABLE;
