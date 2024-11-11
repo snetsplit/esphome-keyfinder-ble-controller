@@ -130,7 +130,7 @@ CONFIG_SCHEMA = cv.All(cv.only_on_esp32, cv.only_with_arduino, cv.Schema({
 
     cv.Optional(CONF_BLE_COMMANDS): cv.ensure_list(BLE_COMMAND),
 
-    cv.Optional(CONF_STATIC_PASSKEY): cv.string,
+    cv.Optional(CONF_STATIC_PASSKEY): cv.int_,
 
     cv.Optional(CONF_EXPOSE_MAINTENANCE_SERVICE, default=True): cv.boolean,
 
