@@ -23,7 +23,7 @@ static const char *TAG = "esp32_ble_controller";
 
 
 boolean static_passkey = false;
-char *static_passkey_value; 
+uint32_t static_passkey_value; 
 
 ESP32BLEController::ESP32BLEController() : maintenance_handler(new BLEMaintenanceHandler()) {}
 
@@ -79,9 +79,9 @@ void ESP32BLEController::set_security_enabled(bool enabled) {
   set_security_mode(BLESecurityMode::SECURE);
 }
 
-void ESP32BLEController::set_static_passkey(std::string passkey) {
+void ESP32BLEController::set_static_passkey(uint32_t passkey) {
   static_passkey = true;
-  std::snprintf(static_passkey_value, 6, "%s", passkey.c_str());
+  static_passkey_value = passkey;
 }
 
 
@@ -450,6 +450,9 @@ void ESP32BLEController::configure_ble_security() {
   security.setInitEncryptionKey(ESP_BLE_ENC_KEY_MASK | ESP_BLE_ID_KEY_MASK);
   security.setRespEncryptionKey(ESP_BLE_ENC_KEY_MASK | ESP_BLE_ID_KEY_MASK);
   security.setKeySize(16);
+  if(static_passkey) {
+    security.setStaticPIN(static_passkey_value)
+  }
 
   uint8_t auth_option = ESP_BLE_ONLY_ACCEPT_SPECIFIED_AUTH_ENABLE;
   esp_ble_gap_set_security_param(ESP_BLE_SM_ONLY_ACCEPT_SPECIFIED_SEC_AUTH, &auth_option, sizeof(uint8_t));
