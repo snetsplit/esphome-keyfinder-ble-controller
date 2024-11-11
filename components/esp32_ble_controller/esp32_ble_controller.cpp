@@ -79,7 +79,7 @@ void ESP32BLEController::set_security_enabled(bool enabled) {
   set_security_mode(BLESecurityMode::SECURE);
 }
 
-void ESP32BLEController::set_static_passkey(char passkey[6]) {
+void ESP32BLEController::set_static_passkey(char *passkey[6]) {
   static_passkey = true;
   static_passkey_value = passkey;
 }
