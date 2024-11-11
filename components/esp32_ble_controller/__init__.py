@@ -197,6 +197,9 @@ def to_code(config):
 
     security_enabled = SECURTY_MODE_OPTIONS[config[CONF_SECURITY_MODE]]
     cg.add(var.set_security_mode(config[CONF_SECURITY_MODE]))
+    
+    static_passkey= SECURTY_MODE_OPTIONS[config[CONF_STATIC_PASSKEY]]
+    cg.add(var.set_static_passkey(config[CONF_STATIC_PASSKEY]))
 
     for conf in config.get(CONF_ON_SHOW_PASS_KEY, []):
         trigger = cg.new_Pvariable(conf[CONF_TRIGGER_ID], var)
