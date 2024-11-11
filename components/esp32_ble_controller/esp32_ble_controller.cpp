@@ -23,7 +23,7 @@ static const char *TAG = "esp32_ble_controller";
 
 
 boolean static_passkey = false;
-char static_passkey_value[6];
+char *static_passkey_value[6]; 
 
 ESP32BLEController::ESP32BLEController() : maintenance_handler(new BLEMaintenanceHandler()) {}
 
