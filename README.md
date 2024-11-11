@@ -75,8 +75,8 @@ esp32_ble_controller:
   # sends a 6-digit pass key to the ESP and the ESP is supposed to display it so that it can be entered on the other device.
   # This automation is not available for the "none" mode, optional for the "bond" mode, and required for the "secure" mode.
   security_mode: secure
-  # This optionally allows setting a static passkey instead of randomly generating one. This allows pairing on devices that
-  # don't have a convienent way to display a pass key. If this not set a random passkey will be generated.
+  # This optionally allows setting a static predefined passkey instead of randomly generating one for pairing. This allows
+  # pairing on devices that don't have a convienent way to display a pass key. If this not set a random passkey will be generated.
   static_passkey: "654321"
   # allows to disable the maintenance service, default is 'true'
   # When 'false', the maintenance service is not exposed, which provides at least some protection when security mode is "none".
