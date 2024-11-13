@@ -33,6 +33,7 @@ public:
   void add_command(BLECommand* command) { commands.push_back(command); }
   const vector<BLECommand*>& get_commands() const { return commands; }
   void send_command_result(const string& result_message);
+  void send_notification();
 
 #ifdef USE_LOGGER
   int get_log_level() { return log_level; }
@@ -46,8 +47,6 @@ private:
   void on_command_written();
 
   bool is_security_enabled();
-
-  void send_notification();
   
 private:
   BLEService* maintenance_service;
