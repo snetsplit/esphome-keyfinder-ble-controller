@@ -80,8 +80,10 @@ void ESP32BLEController::set_security_enabled(bool enabled) {
 }
 
 void ESP32BLEController::set_static_passkey(uint32_t passkey) {
-  static_passkey = true;
-  static_passkey_value = passkey;
+  if(passkey > 0) {
+    static_passkey = true;
+    static_passkey_value = passkey;
+  }
 }
 
 
