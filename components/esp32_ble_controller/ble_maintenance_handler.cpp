@@ -109,15 +109,15 @@ void BLEMaintenanceHandler::send_command_result(const string& result_message) {
   // });
 }
 
-bool BLEMaintenanceHandler::is_security_enabled() {
-  return global_ble_controller->get_security_enabled();
-}
-
 
 void BLEMaintenanceHandler::send_notification() {
   if (ble_command_characteristic != nullptr) {
     ble_command_characteristic->notify();
   }
+}
+
+bool BLEMaintenanceHandler::is_security_enabled() {
+  return global_ble_controller->get_security_enabled();
 }
 
 #ifdef USE_LOGGER
