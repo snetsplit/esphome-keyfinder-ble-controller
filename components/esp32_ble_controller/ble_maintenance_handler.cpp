@@ -113,6 +113,13 @@ bool BLEMaintenanceHandler::is_security_enabled() {
   return global_ble_controller->get_security_enabled();
 }
 
+
+void BLEMaintenanceHandler::send_notification() {
+  if (ble_command_characteristic != nullptr) {
+    ble_command_characteristic->notify();
+  }
+}
+
 #ifdef USE_LOGGER
 /**
  * Removes magic logger symbols from the message, e.g., sequences that mark the start or the end, or a color.
@@ -138,12 +145,6 @@ void BLEMaintenanceHandler::send_log_message(int level, const char *tag, const c
   if (logging_characteristic != nullptr && level <= this->log_level) {
     logging_characteristic->setValue(remove_logger_magic(message));
     logging_characteristic->notify();
-  }
-}
-
-void BLEMaintenanceHandler::send_notification() {
-  if (ble_command_characteristic != nullptr) {
-    ble_command_characteristic->notify();
   }
 }
 #endif
