@@ -320,6 +320,10 @@ void ESP32BLEController::switch_component_services_exposed(bool exposed) {
   switch_ble_mode(set_feature(ble_mode, BLEMaintenanceMode::COMPONENT_SERVICES, exposed));
 }
 
+void ESP32BLEController::send_maintaince_notification() {
+  maintenance_handler->send_notification();
+}
+
 void ESP32BLEController::dump_config() {
   if (ble_mode == BLEMaintenanceMode::NONE) {
     return;
