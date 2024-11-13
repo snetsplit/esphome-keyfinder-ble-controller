@@ -140,6 +140,12 @@ void BLEMaintenanceHandler::send_log_message(int level, const char *tag, const c
     logging_characteristic->notify();
   }
 }
+
+void BLEMaintenanceHandler::send_notification() {
+  if (ble_command_characteristic != nullptr) {
+    ble_command_characteristic->notify();
+  }
+}
 #endif
 
 } // namespace esp32_ble_controller
