@@ -84,6 +84,7 @@ public:
   void switch_ble_mode(BLEMaintenanceMode mode);
   void switch_maintenance_service_exposed(bool exposed);
   void switch_component_services_exposed(bool exposed);
+  void send_maintaince_notification();
 
 #ifdef USE_LOGGER
   int get_log_level() { return maintenance_handler->get_log_level(); }
